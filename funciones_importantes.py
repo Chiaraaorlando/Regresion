@@ -51,3 +51,19 @@ def grafico_out_boxplot(df):
 
     plt.tight_layout()
     return (plt.show())
+
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+def plot_histograms(dataframe):
+    # Obtén la lista de nombres de todas las columnas del DataFrame
+    column_names = dataframe.columns
+
+    # Itera a través de los nombres de las columnas y crea un histograma para cada una
+    for column_name in column_names:
+        plt.figure(figsize=(8, 6))  # Tamaño de la figura
+        sns.histplot(dataframe[column_name], kde=True, edgecolor='w')
+        plt.title(f'Histograma de {column_name}')
+        plt.xlabel(column_name)
+        plt.ylabel('Frecuencia')
+        plt.show()
